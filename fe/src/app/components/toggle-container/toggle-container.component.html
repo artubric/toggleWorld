@@ -1,0 +1,35 @@
+
+
+<div>
+  <mat-card class="standard-card flex-horizontal-container purple-header">
+    <div class="mat-body-strong header-text-color">Name</div>
+    <div class="spacer"></div>
+    <div class="mat-body-strong header-text-color standard-right-margin">Delete</div>
+    <div class="mat-body-strong header-text-color standard-right-margin">Edit</div>
+    <div class="mat-body-strong header-text-color">Toggle</div>
+  </mat-card>
+</div>
+
+<ng-template #loading>
+  <mat-card class="standard-card loading-card">
+    <mat-progress-bar mode="query"></mat-progress-bar>
+    <h4>Loading...</h4>
+  </mat-card>
+</ng-template>
+
+<div *ngIf="(featureToggles$ | async) as featureToggles; else loading">
+      <app-display-toggle-feature *ngFor="let ft of featureToggles" [inputData]='ft'></app-display-toggle-feature>
+</div>
+
+<div>
+  <mat-card class="standard-card add-card">
+      <button type="submit"
+              (click)="onCreateClick()"
+              mat-stroked-button
+              color="primary"
+              style="width: 100%;">
+        <mat-icon>add_circle_outline</mat-icon>
+        <span class="mat-body-strong">Create</span>
+      </button>
+  </mat-card>
+</div>

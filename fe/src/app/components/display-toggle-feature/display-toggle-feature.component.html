@@ -1,0 +1,14 @@
+<mat-card class="standard-card flex-horizontal-container">
+    {{inputData.displayName ? inputData.displayName : inputData.technicalName}}
+    <span *ngIf="inputData.isInverted">
+        <mat-icon class="strong standard-right-margin" matTooltip="Feature toggle is inverted!">error_outline</mat-icon>
+    </span>
+    <div class="spacer"></div>
+    <button mat-icon-button (click)="archiveFeature()" color="primary" class="standard-right-margin">
+        <mat-icon>delete</mat-icon>
+    </button>
+    <button mat-icon-button (click)="openEditDialog()" color="primary" class="standard-right-margin">
+        <mat-icon>settings</mat-icon>
+    </button>
+    <mat-slide-toggle color="primary" [checked]="inputData.isActive" (change)="onToggle()"></mat-slide-toggle>
+</mat-card>

@@ -1,0 +1,45 @@
+<form [formGroup]="featureToggleForm" class="flex-form" (ngSubmit)="onSubmit()">
+  
+  <mat-form-field appearance="outline">
+      <mat-label>Display name</mat-label>
+      <input matInput placeholder="Display name" formControlName="displayName">
+  </mat-form-field>
+  
+  <mat-form-field appearance="outline">
+      <mat-label>Technical name</mat-label>
+      <input matInput placeholder="Technical name" formControlName="technicalName">
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+      <mat-label>Expires on</mat-label>
+      <input matInput type="date" placeholder="expiresOn" formControlName="expiresOn">
+    </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Customer Ids</mat-label>
+    <input matInput placeholder="Customer Ids" formControlName="customerIds">
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Inverted</mat-label>
+    <mat-select formControlName="isInverted">
+      <mat-option [value]=true>Yes</mat-option>
+      <mat-option [value]=false>No</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Description</mat-label>
+    <textarea matInput formControlName="description" placeholder="It's dangerous to go alone, type something"></textarea>
+  </mat-form-field>
+
+
+  <button type="submit"
+          mat-stroked-button
+          color="primary"
+          [disabled]="!featureToggleForm.valid"
+          class="mat-elevation-z2">
+    <mat-icon>save</mat-icon>
+    <span>Save</span>
+  </button>
+</form>
